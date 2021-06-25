@@ -47,13 +47,6 @@
         "description": "Size of the VM."
       }
     },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    },
     "vmName": {
       "type": "string",
       "defaultValue": "AzDnsFwd",
@@ -72,7 +65,7 @@
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2019-06-01",
       "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
+      "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
@@ -83,7 +76,7 @@
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2020-06-01",
       "name": "[variables('nicName')]",
-      "location": "[parameters('location')]",
+      "location": "[resourceGroup().location]",
       "properties": {
         "ipConfigurations": [
           {
@@ -102,7 +95,7 @@
       "type": "Microsoft.Compute/virtualMachines",
       "apiVersion": "2020-06-01",
       "name": "[parameters('vmName')]",
-      "location": "[parameters('location')]",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
@@ -156,7 +149,7 @@
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "[concat(parameters('vmName'), '/', 'DnsServer')]",
     "apiVersion": "2019-07-01",
-    "location": "[parameters('location')]",
+    "location": "[resourceGroup().location]",
     "tags": {
         "displayName": "DNS role on the VM"
     },
