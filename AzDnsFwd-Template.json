@@ -227,11 +227,11 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
-                "[concat('artifactsLocation', '/scripts/customScript.ps1', 'artifactsLocationSasToken')]"
+                "https://raw.githubusercontent.com/Tchimwa/Azure-DNS-Forwarder/main/dnsforwarder.ps1"
             ]
         },
         "protectedSettings": {
-            "commandToExecute": "powershell -ExecutionPolicy Bypass -file dnsforwarder.ps1"
+            "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file dnsforwarder.ps1"
           }
       }
     }
