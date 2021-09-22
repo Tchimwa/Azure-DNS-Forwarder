@@ -1,3 +1,5 @@
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)]
+
 # Azure-DNS-Forwarder
 
 This template will deploy a server level DNS forwarder on Windows server with 168.63.129.16 on Azure. 
